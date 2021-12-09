@@ -1,0 +1,107 @@
+[
+    {
+        "title" : "Vicente Sotto Memorial Medical Center",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.308008308881432, "longitude" :  123.8915993604025},        
+        "phone" : "(032) 253 9891",
+        "address" : "B. Rodriguez St, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "Cebu City Medical Center",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.2979159, "longitude" :  123.892192},        
+        "phone" : "(032) 516 3934",
+        "address" : "Natalio B. Bacalso Ave, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "Cebu Doctors University Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.3144558999999, "longitude" :  123.892028799999},        
+        "phone" : "(032) 255 5555",
+        "address" : "Osmeña Blvd, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "Cebu (Velez) - General Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.3074485, "longitude" :  123.8963565},        
+        "phone" : "(032) 253 1871",
+        "address" : "F. Ramos St, Cebu City, Cebu"                    
+    },
+    {
+        "title" : "Adventist Hospital Cebu (Miller Hospital)",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.2959050999999, "longitude" :  123.887665699999},        
+        "phone" : "(032) 261 2100",
+        "address" : "Cebu City, 6000 Cebu"                    
+    },
+
+    {
+        "title" : "Visayas Community Medical Center",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" :10.3064156 , "longitude" : 123.895067099999 },        
+        "phone" : "(032) 253 1901",
+        "address" : "85 Osmeña Blvd, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "Chong Hua Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" :10.3101042999999 , "longitude" : 123.8911886 },        
+        "phone" : "(032) 255 8000",
+        "address" : "Don Mariano Cui Street, Fuente Osmeña Cir, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "Perpetual Succour Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" :10.3147621 , "longitude" : 123.8992719 },        
+        "phone" : "(032) 233 8620",
+        "address" : "Gorordo Ave, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "Vicente Gullas Memorial Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.3472145, "longitude" : 123.9150773 },        
+        "phone" : "(032) 346 9292",
+        "address" : "Gov Cuenco Ave, Cebu City, Cebu"                    
+    },
+    {
+        "title" : "St. Vincent General Hospital Cebu, Inc.",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.3020108999999, "longitude" :123.8947906  },        
+        "phone" : "(032) 238 6870",
+        "address" : "210 Jones Ave, Cebu City, Cebu"                    
+    },
+    {
+        "title" : "South Western Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" :10.3023820999999 , "longitude" : 123.8919573 },        
+        "phone" : "(032) 415 5555",
+        "address" : "South Western Hospital, Villa Aznar Street, Urgello Street Corner, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "ACE Medical Center Cebu",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.2870431, "longitude" : 123.8631564 },        
+        "phone" : "(032) 265 5833",
+        "address" : "Natalio B. Bacalso Ave, Cebu City, 6000 Cebu"                    
+    },
+    {
+        "title" : "St. Anthony Mother & Child Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" :10.28646 , "longitude" : 123.8712693 },        
+        "phone" : "(032) 261 9989",
+        "address" : "Cabreros St, Cebu City, 6000 Cebu"                    
+    },{
+        "title" : "University of Cebu Medical Center - UCMed",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" :10.3204912 , "longitude" : 123.9309247 },        
+        "phone" : "(032) 517 0888",
+        "address" : "A1 Ouano Ave, Mandaue City, 6014 Cebu"                    
+    },
+    {
+        "title" : "Camp Lapulapu Hospital",
+        "type" : "Hospital",
+        "coordinates" : {"latitude" : 10.3370103, "longitude" : 123.9042736 },        
+        "phone" : "(032) 233 9942",
+        "address" : "Camp Lapu-Lapu, Apas, Cebu City, 6000, Cebu"                    
+    }
+]
