@@ -28,7 +28,7 @@ function Feedback(props) {
     const backHandler = BackHandler.addEventListener('hardwareBackPress', handleBackButton);
 
     const getFeedbacks = async () => {
-        await axios(`https://ligtasuna.azurewebsites.net/api/feedback/list_user?id=${parseInt(user.user_ID)}`).then((res) => {
+        await axios.get(`https://ligtasunaapi.azurewebsites.net/api/feedback/list_user?id=${parseInt(user.user_ID)}`).then((res) => {
             if (res.data.length > 0) {
                 let sortedData = res.data.sort(function (a, b) {
                     return new Date(b.created) - new Date(a.created);

@@ -106,7 +106,7 @@ const Dashboard = (props) => {
     const [DasboardData, setData] = React.useState([]);
     const [filteredDashboard, setFilteredDashboard] = React.useState([]);
     const getDashboardItems = async () => {
-        await axios.get(`https://ligtasuna.azurewebsites.net/api/firstaid`).then((res) => {
+        await axios.get(`https://ligtasunaapi.azurewebsites.net/api/firstaid`).then((res) => {
             if (res.data.length > 0) {
                 let dataArr = [];
                 let counter = 0;
@@ -115,7 +115,7 @@ const Dashboard = (props) => {
                     image: [],
                     video: {},
                 };
-
+                console.log(res.data);
                 res.data.forEach((data) => {
                     counter++;
                     let imgArr = {};
@@ -127,6 +127,8 @@ const Dashboard = (props) => {
                             dataObj.description = data.description;
                             dataObj.video.name = data.vidName;
                             dataObj.video.url = data.vidUrl;
+                            dataObj.tools = data.tools;
+                            dataObj.medicine = data.medicine;
                             dataObj.category.push(data.category);
                             imgArr.name = data.imgName;
                             imgArr.url = data.imgUrl;

@@ -68,7 +68,7 @@ function Settings(props) {
             await AsyncStorage.removeItem('notif');
             try {
                 await axios
-                    .put(`https://ligtasuna.azurewebsites.net/api/user/remove_token`, { user_ID: user.user_ID })
+                    .put(`https://ligtasunaapi.azurewebsites.net/api/user/remove_token`, { user_ID: user.user_ID })
                     .then((res) => showToast('Notification Disabled'));
                 setIsSwitchOn(false);
             } catch (error) {
@@ -83,7 +83,7 @@ function Settings(props) {
                 let result = await AsyncStorage.getItem('notif');
                 let token = JSON.parse(result);
                 await axios
-                    .put(`https://ligtasuna.azurewebsites.net/api/user/update_token`, { token: token, user_ID: user.user_ID })
+                    .put(`https://ligtasunaapi.azurewebsites.net/api/user/update_token`, { token: token, user_ID: user.user_ID })
                     .then((res) => showToast('Notification Enabled'));
                 setIsSwitchOn(true);
             } catch (error) {
@@ -107,7 +107,7 @@ function Settings(props) {
         setEditProfileButton(true);
         // console.log(secret);
         let exists = false;
-        await axios.get('https://ligtasuna.azurewebsites.net/api/user?type=user').then((res) => {
+        await axios.get('https://ligtasunaapi.azurewebsites.net/api/user?type=user').then((res) => {
             if (res.data.length > 0) {
                 let results = res.data.filter((usr) => usr.username === username);
                 // //(results[0].user_ID, user.user_ID);
@@ -135,7 +135,7 @@ function Settings(props) {
         } else {
             try {
                 await axios
-                    .put(`https://ligtasuna.azurewebsites.net/api/user/update`, {
+                    .put(`https://ligtasunaapi.azurewebsites.net/api/user/update`, {
                         user_Fname: firstname,
                         user_Lname: lastname,
                         user_Address: address,
@@ -178,7 +178,7 @@ function Settings(props) {
         } else {
             try {
                 await axios
-                    .put(`https://ligtasuna.azurewebsites.net/api/user/update_password`, { password: newPassword, user_ID: user.user_ID })
+                    .put(`https://ligtasunaapi.azurewebsites.net/api/user/update_password`, { password: newPassword, user_ID: user.user_ID })
                     .then(async (res) => {
                         if (res.data.length > 0) {
                             const jsonValue = JSON.stringify(res.data[0]);
@@ -208,7 +208,7 @@ function Settings(props) {
 
     const getSubscribers = async () => {
         try {
-            await axios.get(`https://ligtasuna.azurewebsites.net/api/subscription`).then((res) => {
+            await axios.get(`https://ligtasunaapi.azurewebsites.net/api/subscription`).then((res) => {
                 if (res.data.length > 0) {
                     let result = res.data.filter((subscriber) => subscriber.userId === user.user_ID);
                     if (result) {

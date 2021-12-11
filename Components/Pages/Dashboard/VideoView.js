@@ -33,7 +33,7 @@ function VideoView(props) {
     // const [feedbackEvent, setFeedbackEvent] = useState(false);
 
     const getFeedbacks = async () => {
-        await axios(`https://ligtasuna.azurewebsites.net/api/feedback/list?id=${parseInt(props.videoData.id)}`).then((res) => {
+        await axios.get(`https://ligtasunaapi.azurewebsites.net/api/feedback/list?id=${parseInt(props.videoData.id)}`).then((res) => {
             if (res.data.length > 0) {
                 let sortedData = res.data.sort(function (a, b) {
                     // Turn your strings into dates, and then subtract them
@@ -47,7 +47,7 @@ function VideoView(props) {
 
     const addFeedback = async () => {
         await axios
-            .post(`https://ligtasuna.azurewebsites.net/api/feedback`, {
+            .post(`https://ligtasunaapi.azurewebsites.net/api/feedback`, {
                 feed_Descrp: description,
                 firstaids: {
                     faidPR_ID: videos.id,
@@ -101,7 +101,7 @@ function VideoView(props) {
         return;
         // try {
         //     await axios
-        //         .post(`https://ligtasuna.azurewebsites.net/api/subscription`, {
+        //         .post(`https://ligtasunaapi.azurewebsites.net/api/subscription`, {
         //             users: {
         //                 user_ID: parseInt(user.user_ID),
         //             },
@@ -127,7 +127,7 @@ function VideoView(props) {
         ]);
         return;
         // try {
-        //     await axios.post(`https://ligtasuna.azurewebsites.net/api/subscription/unsubscribe?userId=${user.user_ID}`).then((res) => {
+        //     await axios.post(`https://ligtasunaapi.azurewebsites.net/api/subscription/unsubscribe?userId=${user.user_ID}`).then((res) => {
         //         if (res.data) {
         //             setSubscribe(false);
         //             showToast('Unsubscribed Successfully!');
@@ -139,7 +139,7 @@ function VideoView(props) {
     };
 
     const getSubscribers = async () => {
-        await axios.get(`https://ligtasuna.azurewebsites.net/api/subscription`).then((res) => {
+        await axios.get(`https://ligtasunaapi.azurewebsites.net/api/subscription`).then((res) => {
             if (res.data.length > 0) {
                 res.data.forEach((rslt) => {
                     //(rslt.userId, user.user_ID);
@@ -164,7 +164,7 @@ function VideoView(props) {
     const onBookmark = async () => {
         //('ebookmark');
         try {
-            await axios.post(`https://ligtasuna.azurewebsites.net/api/bookmark/new?userId=${user.user_ID}&faid=${videos.id}`).then((res) => {
+            await axios.post(`https://ligtasunaapi.azurewebsites.net/api/bookmark/new?userId=${user.user_ID}&faid=${videos.id}`).then((res) => {
                 if (res.data) {
                     setBookmark(true);
                     getBookmarkStatus();
@@ -178,7 +178,7 @@ function VideoView(props) {
 
     const onUnbookmark = async () => {
         try {
-            await axios.post(`https://ligtasuna.azurewebsites.net/api/bookmark/unbook?userId=${user.user_ID}&faid=${videos.id}`).then((res) => {
+            await axios.post(`https://ligtasunaapi.azurewebsites.net/api/bookmark/unbook?userId=${user.user_ID}&faid=${videos.id}`).then((res) => {
                 if (res.data) {
                     setBookmark(false);
                     getBookmarkStatus();
@@ -192,7 +192,7 @@ function VideoView(props) {
 
     const getBookmarkStatus = async () => {
         try {
-            await axios.get(`https://ligtasuna.azurewebsites.net/api/bookmark?userId=${user.user_ID}&faid=${videos.id}`).then((res) => {
+            await axios.get(`https://ligtasunaapi.azurewebsites.net/api/bookmark?userId=${user.user_ID}&faid=${videos.id}`).then((res) => {
                 if (res.data.length > 0) {
                     setBookmark(true);
                 } else {
@@ -206,7 +206,7 @@ function VideoView(props) {
 
     const downloadVideo = async () => {
         try {
-            Linking.openURL(`https://ligtasuna.azurewebsites.net/api/file/download?fileName=${videos.video.name}.mp4`);
+            Linking.openURL(`https://ligtasunaapi.azurewebsites.net/api/file/download?fileName=${videos.video.name}.mp4`);
         } catch (error) {
             showToast('Error !');
             throw error;
@@ -221,7 +221,7 @@ function VideoView(props) {
             }, 12000);
         }
         try {
-            await axios.post(`https://ligtasuna.azurewebsites.net/api/firstaid/add_views?faid=${videos.id}`).then((res) => {
+            await axios.post(`https://ligtasunaapi.azurewebsites.net/api/firstaid/add_views?faid=${videos.id}`).then((res) => {
                 if (res.data.length > 0) {
                     setVideo({ ...videos, views: (videos.views += 1) });
                 }
@@ -289,6 +289,10 @@ function VideoView(props) {
                     <Text style={[global.fontRegular, { fontSize: 14, marginLeft: 5, color: 'rgba(0,0,0,.7)', textAlign: 'justify' }]}>
                         {videos.description}
                     </Text>
+                    {videos.tools ? <Text style={[global.fontRegular, { color: 'rgba(0,0,0,.7)', marginTop: 10 }]}>Tools : {videos.tools}</Text> : null}
+                    {videos.medicine ? (
+                        <Text style={[global.fontRegular, { color: 'rgba(0,0,0,.7)', marginTop: 10 }]}>Medicine : {videos.medicine}</Text>
+                    ) : null}
                     <Text style={[global.fontRegular, { color: 'rgba(0,0,0,.7)', marginTop: 10 }]}>
                         Posted : {moment.tz(videos.created, 'Asia/Manila').tz('America/Los_Angeles').format('lll')} | {videos.views} views
                         {/* {moment.tz(rep.created, 'Asia/Manila').tz('America/Los_Angeles').format('lll')} */}
@@ -372,6 +376,9 @@ function VideoView(props) {
                         </View>
                     </View>
                 </ScrollView>
+                {/* <Button icon="arrow-left" labelStyle={global.fontBold} mode="contained" onPress={() => console.log(videos)}>
+                    videos
+                </Button> */}
                 <Button icon="arrow-left" labelStyle={global.fontBold} mode="contained" onPress={backToPrevPage}>
                     Back to Home
                 </Button>

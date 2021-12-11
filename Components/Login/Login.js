@@ -44,7 +44,7 @@ const Login = (props) => {
                 setLoading(false);
                 return;
             }
-            await axios.post('https://ligtasuna.azurewebsites.net/api/user/login?type=user', { username: username, password: password }).then((res) => {
+            await axios.post('https://ligtasunaapi.azurewebsites.net/api/user/login?type=user', { username: username, password: password }).then((res) => {
                 if (res.data.length > 0) {
                     //(res.data[0]);
                     if (res.data[0].status === 'active') {
@@ -85,7 +85,7 @@ const Login = (props) => {
                 setLoading(false);
             } else {
                 await axios
-                    .post(`https://ligtasuna.azurewebsites.net/api/user/forget_password?username=${username}&password=${password}&secret=${secret}`)
+                    .post(`https://ligtasunaapi.azurewebsites.net/api/user/forget_password?username=${username}&password=${password}&secret=${secret}`)
                     .then((res) => {
                         // console.log(res.data);
                         if (res.data.length > 0 && res.data[0].password === password) {

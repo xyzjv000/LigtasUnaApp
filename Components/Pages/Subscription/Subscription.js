@@ -23,7 +23,7 @@ function Subscription(props) {
 
     const getSubscribers = async () => {
         try {
-            await axios.get(`https://ligtasuna.azurewebsites.net/api/subscription`).then((res) => {
+            await axios.get(`https://ligtasunaapi.azurewebsites.net/api/subscription`).then((res) => {
                 if (res.data.length > 0) {
                     let result = res.data.filter((subscriber) => subscriber.userId === user.user_ID);
                     if (result && moment().subtract(1, 'month') < moment(result[0].subDate)) {
@@ -54,7 +54,7 @@ function Subscription(props) {
     const _onSub = async () => {
         try {
             await axios
-                .post(`https://ligtasuna.azurewebsites.net/api/subscription`, {
+                .post(`https://ligtasunaapi.azurewebsites.net/api/subscription`, {
                     users: {
                         user_ID: parseInt(user.user_ID),
                     },
@@ -81,7 +81,7 @@ function Subscription(props) {
     };
     const _unsub = async () => {
         try {
-            await axios.post(`https://ligtasuna.azurewebsites.net/api/subscription/unsubscribe?userId=${user.user_ID}`).then((res) => {
+            await axios.post(`https://ligtasunaapi.azurewebsites.net/api/subscription/unsubscribe?userId=${user.user_ID}`).then((res) => {
                 if (res.data) {
                     showToast('Unsubscribed Successfully');
                     getSubscribers();

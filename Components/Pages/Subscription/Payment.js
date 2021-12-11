@@ -33,7 +33,7 @@ function Payment(props) {
         //     }),
         // });
 
-        await axios.post(`https://ligtasuna.azurewebsites.net/api/payment`).then(async (res) => {
+        await axios.post(`https://ligtasunaapi.azurewebsites.net/api/payment`).then(async (res) => {
             const { client_secret } = res.data;
             const { error, paymentIntent } = await confirmPayment(client_secret, {
                 type: 'Card',

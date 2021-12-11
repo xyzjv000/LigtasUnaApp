@@ -16,7 +16,7 @@ function Bookmark(props) {
     const [loadedPage, setLoadedPage] = React.useState('Bookmark');
     const getBookmarks = async () => {
         // //(user);
-        await axios.get(`https://ligtasuna.azurewebsites.net/api/bookmark/one?userId=${user.user_ID}`).then((res) => {
+        await axios.get(`https://ligtasunaapi.azurewebsites.net/api/bookmark/one?userId=${user.user_ID}`).then((res) => {
             if (res.data.length > 0) {
                 setBookmarks(res.data);
             } else {
@@ -48,7 +48,7 @@ function Bookmark(props) {
     };
 
     const getDashboardItems = async (val) => {
-        await axios.get(`https://ligtasuna.azurewebsites.net/api/firstaid`).then((res) => {
+        await axios.get(`https://ligtasunaapi.azurewebsites.net/api/firstaid`).then((res) => {
             if (res.data.length > 0) {
                 let dataArr = [];
                 let counter = 0;

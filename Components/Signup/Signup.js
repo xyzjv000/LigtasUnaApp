@@ -41,7 +41,7 @@ const Signup = (props) => {
         setLoading(true);
         let exists = false;
         await axios
-            .get('https://ligtasuna.azurewebsites.net/api/user?type=user')
+            .get('https://ligtasunaapi.azurewebsites.net/api/user?type=user')
             .then((res) => {
                 if (res.data.length > 0) {
                     res.data.forEach((usr) => {
@@ -75,7 +75,7 @@ const Signup = (props) => {
                         setLoading(false);
                     } else {
                         axios
-                            .post('https://ligtasuna.azurewebsites.net/api/user?type=user', {
+                            .post('https://ligtasunaapi.azurewebsites.net/api/user?type=user', {
                                 user_fname: firstname,
                                 user_lname: lastname,
                                 user_address: address,
